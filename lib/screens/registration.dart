@@ -88,9 +88,11 @@ class _RegistrationPageState extends State<RegistrationPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      
       key: scaffoldKey,
       backgroundColor: Colors.white,
       body: SafeArea(
+      
         child: SingleChildScrollView(
           child: Padding(
             padding: EdgeInsets.all(8.0),
@@ -101,7 +103,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
                   alignment: Alignment.center,
                   height: 100.0,
                   width: 100.0,
-                  image: AssetImage('images/logo.png'),
+                  image: AssetImage('images/login_icon.png'),
                 ),
 
                 SizedBox(height: 40,),
@@ -195,7 +197,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
 
                       TaxiButton(
                         title: 'REGISTER',
-                        color: BrandColors.colorAccentPurple,
+                        color: Colors.blueGrey,
                         onPressed: () async{
 
                           //check network availability
@@ -239,7 +241,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
                     onPressed: (){
                       Navigator.pushNamedAndRemoveUntil(context, LoginPage.id, (route) => false);
                     },
-                    child: Text('Already have a DRIVER account? Log in')
+                    child: Text('Already have an account? Log in')
                 ),
 
 

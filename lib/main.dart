@@ -11,6 +11,9 @@ import 'dart:io';
 
 import 'package:provider/provider.dart';
 
+import 'screens/mainpage.dart';
+import 'screens/registration.dart';
+
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   final FirebaseApp app = await FirebaseApp.configure(
@@ -19,12 +22,12 @@ Future<void> main() async {
         ? const FirebaseOptions(
       googleAppID: '1:169450788828:ios:565f2d4b4623a7dbf9a119',
       gcmSenderID: '169450788828',
-      databaseURL: 'https://geetaxi-9c60a.firebaseio.com',
+      databaseURL: 'https://finaltry-622c5.firebaseio.com',
     )
         : const FirebaseOptions(
-      googleAppID: '1:169450788828:android:5ecb13adb959cb18f9a119',
+      googleAppID: '1:151917049307:android:6a2d325f6c05c125f0e3fe',
       apiKey: 'AIzaSyDQSm22dfjceA0OiQ9XL-0tQ0d7_XZTXpQ',
-      databaseURL: 'https://geetaxi-9c60a.firebaseio.com',
+      databaseURL: 'https://finaltry-622c5.firebaseio.com',
     ),
   );
 
@@ -48,7 +51,8 @@ class MyApp extends StatelessWidget {
           primarySwatch: Colors.blue,
           visualDensity: VisualDensity.adaptivePlatformDensity,
         ),
-        initialRoute: (currentFirebaseUser == null) ? LoginPage.id : MainPage.id,
+        //initialRoute: (currentFirebaseUser == null) ? LoginPage.id : MainPage.id,
+        initialRoute: RegistrationPage.id,
         routes: {
           MainPage.id: (context) => MainPage(),
           RegistrationPage.id: (context) => RegistrationPage(),

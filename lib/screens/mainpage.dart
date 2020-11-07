@@ -26,14 +26,12 @@ class _MainPageState extends State<MainPage> with SingleTickerProviderStateMixin
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     tabController = TabController(length: 4, vsync: this);
   }
 
   @override
   void dispose() {
-    // TODO: implement dispose
     tabController.dispose();
     super.dispose();
   }
@@ -56,20 +54,20 @@ class _MainPageState extends State<MainPage> with SingleTickerProviderStateMixin
         items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
-            title: Text('Home'),
+            label: 'Home',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.credit_card),
-            title: Text('Earnings'),
+            label: 'Earnings',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.star),
-            title: Text('Ratings'),
+            label:'Ratings',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.person),
-            title: Text('Account'),
-          ),
+            label:'Account',
+            ),
         ],
         currentIndex: selecetdIndex,
         unselectedItemColor: BrandColors.colorIcon,

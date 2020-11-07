@@ -31,8 +31,8 @@ class _HomeTabState extends State<HomeTab> {
   var geoLocator = Geolocator();
   var locationOptions = LocationOptions(accuracy: LocationAccuracy.bestForNavigation, distanceFilter: 4);
 
-  String availabilityTitle = 'GO ONLINE';
-  Color availabilityColor = BrandColors.colorOrange;
+  String availabilityTitle = 'OFFER A RIDE';
+  Color availabilityColor = BrandColors.colorGreen;
 
   bool isAvailable = false;
 
@@ -69,7 +69,6 @@ class _HomeTabState extends State<HomeTab> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     getCurrentDriverInfo();
   }
@@ -94,7 +93,7 @@ class _HomeTabState extends State<HomeTab> {
         Container(
           height: 135,
           width: double.infinity,
-          color: BrandColors.colorPrimary,
+          color: Colors.white,
         ),
 
         Positioned(
@@ -114,8 +113,8 @@ class _HomeTabState extends State<HomeTab> {
                   isDismissible: false,
                     context: context,
                     builder: (BuildContext context) => ConfirmSheet(
-                      title: (!isAvailable) ? 'GO ONLINE' : 'GO OFFLINE',
-                      subtitle: (!isAvailable) ? 'You are about to become available to receive trip requests': 'you will stop receiving new trip requests',
+                      title: (!isAvailable) ? 'OFFER A RIDE' : 'STOP ACCEPTING',
+                      subtitle: (!isAvailable) ? 'You are about to become available to receive trip requests. Confirm to continue!': 'You will stop receiving new trip requests.',
 
                       onPressed: (){
 
@@ -125,8 +124,8 @@ class _HomeTabState extends State<HomeTab> {
                           Navigator.pop(context);
 
                           setState(() {
-                            availabilityColor = BrandColors.colorGreen;
-                            availabilityTitle = 'GO OFFLINE';
+                            availabilityColor = Colors.red;
+                            availabilityTitle = 'STOP ACCEPTING';
                             isAvailable = true;
                           });
 
@@ -136,8 +135,8 @@ class _HomeTabState extends State<HomeTab> {
                           GoOffline();
                           Navigator.pop(context);
                           setState(() {
-                            availabilityColor = BrandColors.colorOrange;
-                            availabilityTitle = 'GO ONLINE';
+                            availabilityColor = BrandColors.colorGreen;
+                            availabilityTitle = 'OFFER A RIDE';
                             isAvailable = false;
                           });
                         }

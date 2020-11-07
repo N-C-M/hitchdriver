@@ -84,7 +84,7 @@ class _LoginPageState extends State<LoginPage> {
                   alignment: Alignment.center,
                   height: 100.0,
                   width: 100.0,
-                  image: AssetImage('images/logo.png'),
+                  image: AssetImage('images/login_icon.png'),
                 ),
 
                 SizedBox(height: 40,),
@@ -137,7 +137,7 @@ class _LoginPageState extends State<LoginPage> {
 
                       TaxiButton(
                         title: 'LOGIN',
-                        color: BrandColors.colorAccentPurple,
+                        color: Colors.blueGrey,
                         onPressed: () async {
 
                           //check network availability

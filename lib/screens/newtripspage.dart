@@ -73,7 +73,6 @@ class _NewTripPageState extends State<NewTripPage> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     acceptTrip();
   }
@@ -243,6 +242,7 @@ class _NewTripPageState extends State<NewTripPage> {
                           startTimer();
                         }
                         else if(status == 'ontrip'){
+
                           endTrip();
                         }
 
@@ -489,13 +489,14 @@ class _NewTripPageState extends State<NewTripPage> {
 
      timer.cancel();
 
-     HelperMethods.showProgressDialog(context);
+     //HelperMethods.showProgressDialog(context);
+     myPosition= await Geolocator().getCurrentPosition(desiredAccuracy: LocationAccuracy.bestForNavigation);
 
      var currentLatLng = LatLng(myPosition.latitude, myPosition.longitude);
 
      var directionDetails = await HelperMethods.getDirectionDetails(widget.tripDetails.pickup, currentLatLng);
 
-     Navigator.pop(context);
+     //Navigator.pop(context);
 
      int fares = HelperMethods.estimateFares(directionDetails, durationCounter);
 
@@ -526,12 +527,12 @@ class _NewTripPageState extends State<NewTripPage> {
 
         double oldEarnings = double.parse(snapshot.value.toString());
 
-        double adjustedEarnings = (fares.toDouble() * 0.85) + oldEarnings;
+        double adjustedEarnings = (fares.toDouble() ) + oldEarnings;
 
         earningsRef.set(adjustedEarnings.toStringAsFixed(2));
       }
       else{
-        double adjustedEarnings = (fares.toDouble() * 0.85);
+        double adjustedEarnings = (fares.toDouble());
         earningsRef.set(adjustedEarnings.toStringAsFixed(2));
       }
 
