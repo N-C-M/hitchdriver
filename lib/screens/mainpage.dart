@@ -1,10 +1,8 @@
 import 'package:cabdriver/brand_colors.dart';
-import 'package:cabdriver/globalvariabels.dart';
 import 'package:cabdriver/tabs/earningstab.dart';
 import 'package:cabdriver/tabs/hometab.dart';
 import 'package:cabdriver/tabs/profiletab.dart';
 import 'package:cabdriver/tabs/ratingstab.dart';
-import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 
 class MainPage extends StatefulWidget {

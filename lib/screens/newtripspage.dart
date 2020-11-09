@@ -150,7 +150,7 @@ class _NewTripPageState extends State<NewTripPage> {
                       ),
                     ),
 
-                    SizedBox(height: 5,),
+                    SizedBox(height: 3,),
 
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -165,7 +165,7 @@ class _NewTripPageState extends State<NewTripPage> {
                       ],
                     ),
 
-                    SizedBox(height:  25,),
+                    SizedBox(height:  15,),
 
                     Row(
                       children: <Widget>[
@@ -185,7 +185,7 @@ class _NewTripPageState extends State<NewTripPage> {
                       ],
                     ),
 
-                    SizedBox(height: 15,),
+                    SizedBox(height: 10,),
 
 
                     Row(
@@ -207,7 +207,7 @@ class _NewTripPageState extends State<NewTripPage> {
                     ),
 
 
-                    SizedBox(height: 25,),
+                    SizedBox(height: 20,),
 
                     TaxiButton(
                       title: buttonTitle,

@@ -44,11 +44,11 @@ class _RegistrationPageState extends State<RegistrationPage> {
   void registerUser() async {
 
     //show please wait dialog
-    showDialog(
+   /* showDialog(
       barrierDismissible: false,
       context: context,
       builder: (BuildContext context) => ProgressDialog(status: 'Registering you...',),
-    );
+    );*/
 
     final FirebaseUser user = (await _auth.createUserWithEmailAndPassword(
       email: emailController.text,

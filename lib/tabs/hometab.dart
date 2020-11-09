@@ -7,8 +7,7 @@ import 'package:cabdriver/helpers/helpermethods.dart';
 import 'package:cabdriver/helpers/pushnotificationservice.dart';
 import 'package:cabdriver/widgets/AvailabilityButton.dart';
 import 'package:cabdriver/widgets/ConfirmSheet.dart';
-import 'package:cabdriver/widgets/NotificationDialog.dart';
-import 'package:cabdriver/widgets/TaxiButton.dart';
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
@@ -36,6 +35,7 @@ class _HomeTabState extends State<HomeTab> {
 
   bool isAvailable = false;
 
+TextEditingController driverdestination= new TextEditingController();
 
   void getCurrentPosition() async {
 
@@ -65,6 +65,9 @@ class _HomeTabState extends State<HomeTab> {
     pushNotificationService.getToken();
 
     HelperMethods.getHistoryInfo(context);
+    HelperMethods.getdriverInfo(context);
+    HelperMethods.getmail(context);
+    HelperMethods.getphone(context);
   }
 
   @override
@@ -91,13 +94,42 @@ class _HomeTabState extends State<HomeTab> {
           },
         ),
         Container(
-          height: 135,
+          
+          height: 195,
           width: double.infinity,
           color: Colors.white,
+          
+        
         ),
+        
+          Positioned(
+            top:60,
+            left:25,
+            right:25,
+                      child: new TextFormField(
+                        controller: driverdestination,
+                        decoration: new InputDecoration(
+                          labelText: "Enter Destination",
+                          fillColor: Colors.white,
+                          border: new OutlineInputBorder(
+                            borderRadius: new BorderRadius.circular(25.0),
+                            borderSide: new BorderSide(
+                            ),
+                          ),
+                          //fillColor: Colors.green
+                        ),
+                        
+                        keyboardType: TextInputType.emailAddress,
+                        style: new TextStyle(
+                          fontFamily: "Poppins",
+                        ),
+                      ),
+          ),
+        
+
 
         Positioned(
-          top: 60,
+          top: 130,
           left: 0,
           right: 0,
           child: Row(
@@ -109,6 +141,10 @@ class _HomeTabState extends State<HomeTab> {
                 onPressed: (){
 
 
+                  //ivde
+                DatabaseReference dest = FirebaseDatabase.instance.reference().child('drivers/${currentFirebaseUser.uid}/destination');
+                dest.set(driverdestination.text);
+
                 showModalBottomSheet(
                   isDismissible: false,
                     context: context,
@@ -117,6 +153,7 @@ class _HomeTabState extends State<HomeTab> {
                       subtitle: (!isAvailable) ? 'You are about to become available to receive trip requests. Confirm to continue!': 'You will stop receiving new trip requests.',
 
                       onPressed: (){
+
 
                         if(!isAvailable){
                           GoOnline();
@@ -147,6 +184,8 @@ class _HomeTabState extends State<HomeTab> {
 
                 },
               ),
+              SizedBox(height:5),
+              
             ],
           ),
         )

@@ -112,7 +112,7 @@ class VehicleInfoPage extends StatelessWidget {
                     SizedBox(height: 40.0),
 
                     TaxiButton(
-                      color: BrandColors.colorGreen,
+                      color: Colors.blueGrey,
                       title: 'PROCEED',
                       onPressed: (){
 

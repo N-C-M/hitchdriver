@@ -35,15 +35,15 @@ class ConfirmSheet extends StatelessWidget {
         child: Column(
           children: <Widget>[
 
-            SizedBox(height:  10,),
+            SizedBox(height:  5,),
 
            Text(
              title,
              textAlign: TextAlign.center,
-             style: TextStyle(fontSize: 22, fontFamily: 'Brand-Bold', color: BrandColors.colorText),
+             style: TextStyle(fontSize: 16, fontFamily: 'Brand-Bold', color: BrandColors.colorText),
            ),
 
-            SizedBox(height: 20,),
+            SizedBox(height: 10,),
 
             Text(
               subtitle,
@@ -51,7 +51,7 @@ class ConfirmSheet extends StatelessWidget {
               style: TextStyle(color: BrandColors.colorTextLight),
             ),
 
-            SizedBox(height: 24,),
+            SizedBox(height: 20,),
 
             Row(
               children: <Widget>[
@@ -71,8 +71,10 @@ class ConfirmSheet extends StatelessWidget {
                 SizedBox(width: 16,),
 
                 Expanded(
+                  
                   child: Container(
                     child: TaxiButton(
+                      
                       onPressed: onPressed,
                       color: (title == 'GO ONLINE') ? BrandColors.colorGreen : Colors.red,
                       title: 'CONFIRM',

@@ -1,5 +1,4 @@
 
-import 'package:cabdriver/brand_colors.dart';
 import 'package:cabdriver/screens/mainpage.dart';
 import 'package:cabdriver/screens/registration.dart';
 import 'package:cabdriver/widgets/ProgressDialog.dart';

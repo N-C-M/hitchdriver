@@ -7,14 +7,13 @@ import 'package:cabdriver/dataprovider.dart';
 import 'package:cabdriver/globalvariabels.dart';
 import 'package:cabdriver/helpers/requesthelper.dart';
 import 'package:cabdriver/widgets/ProgressDialog.dart';
-import 'package:connectivity/connectivity.dart';
-import 'package:firebase_auth/firebase_auth.dart';
+
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_geofire/flutter_geofire.dart';
-import 'package:geolocator/geolocator.dart';
+
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:http/http.dart';
+
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 
@@ -54,7 +53,7 @@ class HelperMethods{
     double distanceFare = (details.distanceValue/1000) * 6;
     double timeFare = (details.durationValue / 60) * 1.5;
 
-    double totalFare = baseFare + distanceFare + timeFare;
+    double totalFare = (baseFare + distanceFare + timeFare)/2;
 
     return totalFare.truncate();
   }
@@ -144,6 +143,53 @@ class HelperMethods{
 
   }
 
+  static void getdriverInfo(context){
+    DatabaseReference drivernew= FirebaseDatabase.instance.reference().child('drivers/${currentFirebaseUser.uid}/fullname');
+    //
+
+
+
+    drivernew.once().then((DataSnapshot snapshot){
+
+      if(snapshot.value != null){
+        String dname = snapshot.value.toString();
+        Provider.of<AppData>(context, listen: false).updateName(dname);
+      }
+      
+      });
+
+     
+  }
+
+  static void getmail(context){
+        DatabaseReference mail= FirebaseDatabase.instance.reference().child('drivers/${currentFirebaseUser.uid}/email');
+         mail.once().then((DataSnapshot snapshot){
+
+      if(snapshot.value != null){
+        String mailval = snapshot.value.toString();
+        Provider.of<AppData>(context, listen: false).updateMail(mailval);
+      }
+      
+      });
+
+
+  }
+
+  static void getphone(context){
+
+    DatabaseReference phonenum= FirebaseDatabase.instance.reference().child('drivers/${currentFirebaseUser.uid}/phone');         
+    phonenum.once().then((DataSnapshot snapshot){
+
+      if(snapshot.value != null){
+        String phonenumber = snapshot.value.toString();
+        Provider.of<AppData>(context, listen: false).updatePhn(phonenumber);
+      }
+      
+      });
+
+
+  }
+
 
   static String formatMyDate(String datestring){
 
@@ -152,5 +198,6 @@ class HelperMethods{
 
     return formattedDate;
   }
+
 
 }
