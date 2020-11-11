@@ -14,6 +14,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_polyline_points/flutter_polyline_points.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class NewTripPage extends StatefulWidget {
 
@@ -76,6 +77,26 @@ class _NewTripPageState extends State<NewTripPage> {
     super.initState();
     acceptTrip();
   }
+
+  void launchWhatsApp({
+  @required String phone,
+  @required String message,
+}) async {
+  String url() {
+    if (Platform.isIOS) {
+      return "whatsapp://wa.me/$phone/?text=${Uri.parse(message)}";
+    } else {
+      return "whatsapp://send?phone=$phone&text=${Uri.parse(message)}";
+    }
+  }
+
+  if (await canLaunch(url())) {
+    await launch(url());
+  } else {
+    throw 'Could not launch ${url()}';
+  }
+}
+
 
   @override
   Widget build(BuildContext context) {
@@ -150,16 +171,24 @@ class _NewTripPageState extends State<NewTripPage> {
                       ),
                     ),
 
-                    SizedBox(height: 3,),
+                    SizedBox(height: 1,),
 
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: <Widget>[
-                        Text(widget.tripDetails.riderName, style: TextStyle(fontSize: 22, fontFamily: 'Brand-Bold'),),
+                        Text(widget.tripDetails.riderName, style: TextStyle(fontSize: 20, fontFamily: 'Brand-Bold'),),
 
                         Padding(
-                          padding: EdgeInsets.only(right: 10),
-                          child: Icon(Icons.call),
+                          padding: EdgeInsets.only(right: 8),
+                          child: FlatButton(
+                            onPressed: (){
+                              String phon=widget.tripDetails.riderPhone;
+
+                              launchWhatsApp(phone: '91$phon',message: 'Hey I am on my way');
+                              print(widget.tripDetails.riderPhone);
+                            },
+                            
+                            child: Icon(Icons.call)),
                         ),
 
                       ],
@@ -176,7 +205,7 @@ class _NewTripPageState extends State<NewTripPage> {
                           child: Container(
                             child: Text(
                               widget.tripDetails.pickupAddress,
-                              style: TextStyle(fontSize: 18),
+                              style: TextStyle(fontSize: 15),
                               overflow: TextOverflow.ellipsis,
                             ),
                           ),
@@ -197,7 +226,7 @@ class _NewTripPageState extends State<NewTripPage> {
                           child: Container(
                             child: Text(
                               widget.tripDetails.destinationAddress,
-                              style: TextStyle(fontSize: 18),
+                              style: TextStyle(fontSize: 15),
                               overflow: TextOverflow.ellipsis,
                             ),
                           ),

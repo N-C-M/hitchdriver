@@ -51,9 +51,9 @@ class HelperMethods{
 
     double baseFare = 12;
     double distanceFare = (details.distanceValue/1000) * 6;
-    double timeFare = (details.durationValue / 60) * 1.5;
+    //double timeFare = (details.durationValue / 60) * 1.5;
 
-    double totalFare = (baseFare + distanceFare + timeFare)/2;
+    double totalFare = baseFare + distanceFare ;
 
     return totalFare.truncate();
   }

@@ -46,6 +46,8 @@ dependencies:
   toast: ^0.1.5
   maps_toolkit: ^1.1.0+1
   intl: ^0.16.1
+  url_launcher: ^5.4.1
+
 
 
 dev_dependencies:
