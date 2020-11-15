@@ -42,7 +42,7 @@ class HistoryTile extends StatelessWidget {
                   Image.asset('images/desticon.png', height: 16, width: 16,),
                   SizedBox(width: 18,),
 
-                  Text(history.destination, overflow: TextOverflow.ellipsis, style: TextStyle(fontSize: 18),),
+                  Text(history.destination, overflow: TextOverflow.ellipsis, style: TextStyle(fontSize: 15),),
 
 
                 ],

@@ -3,6 +3,7 @@ import 'package:cabdriver/tabs/earningstab.dart';
 import 'package:cabdriver/tabs/hometab.dart';
 import 'package:cabdriver/tabs/profiletab.dart';
 import 'package:cabdriver/tabs/ratingstab.dart';
+import 'package:cabdriver/tabs/schedule.dart';
 import 'package:flutter/material.dart';
 
 class MainPage extends StatefulWidget {
@@ -44,7 +45,7 @@ class _MainPageState extends State<MainPage> with SingleTickerProviderStateMixin
         children: <Widget>[
           HomeTab(),
           EarningsTab(),
-          RatingsTab(),
+          schedule(),
           ProfileTab(),
         ],
       ),
