@@ -120,6 +120,7 @@ class _scheduleState extends State<schedule> {
                           'date':date.text,
                           'time':time.text,
                           'driverphone':currentDriverInfo.phone,
+                          'drivername':currentDriverInfo.fullName,
                           
 
                         };
