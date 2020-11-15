@@ -44,21 +44,38 @@ class NotificationDialog extends StatelessWidget {
 
             Text('NEW TRIP REQUEST', style: TextStyle(fontFamily: 'Brand-Bold', fontSize: 18),),
 
-            SizedBox(height: 30.0,),
+            SizedBox(height: 10.0,),
+
+            
 
             Padding(
               padding: EdgeInsets.all(16.0),
               child: Column(
 
                 children: <Widget>[
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      Image.asset('images/user_icon.png', height: 16, width: 16,),
+                      
+                      SizedBox(width: 18,),
 
+                      Expanded(child: Container(
+                        
+                        child: Text(tripDetails.riderName, style: TextStyle(fontSize: 18),)))
+
+
+                    ],
+                  ),
+  
+                  SizedBox(height: 15,),
                   Row(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
                       Image.asset('images/pickicon.png', height: 16, width: 16,),
                       SizedBox(width: 18,),
 
-                      Expanded(child: Container(child: Text(tripDetails.pickupAddress, style: TextStyle(fontSize: 18),)))
+                      Expanded(child: Container(child: Text(tripDetails.pickupAddress, style: TextStyle(fontSize: 15),)))
 
 
                     ],
@@ -72,11 +89,14 @@ class NotificationDialog extends StatelessWidget {
                       Image.asset('images/desticon.png', height: 16, width: 16,),
                       SizedBox(width: 18,),
 
-                      Expanded(child: Container(child: Text(tripDetails.destinationAddress, style: TextStyle(fontSize: 18),)))
+                      Expanded(child: Container(child: Text(tripDetails.destinationAddress, style: TextStyle(fontSize: 15),)))
 
 
                     ],
                   ),
+                 
+
+                  
 
                 ],
               ),

@@ -60,7 +60,7 @@ class _MainPageState extends State<MainPage> with SingleTickerProviderStateMixin
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.star),
-            label:'Ratings',
+            label:'Schedule A Trip',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.person),
