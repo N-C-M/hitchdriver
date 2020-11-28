@@ -176,7 +176,7 @@ class _NewTripPageState extends State<NewTripPage> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: <Widget>[
-                        Text(widget.tripDetails.riderName, style: TextStyle(fontSize: 20, fontFamily: 'Brand-Bold'),),
+                        Text(widget.tripDetails.riderName, style: TextStyle(fontSize: 18, fontFamily: 'Brand-Bold'),),
 
                         Padding(
                           padding: EdgeInsets.only(right: 8),

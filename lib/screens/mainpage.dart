@@ -1,4 +1,5 @@
 import 'package:cabdriver/brand_colors.dart';
+import 'package:cabdriver/tabs/datetime.dart';
 import 'package:cabdriver/tabs/earningstab.dart';
 import 'package:cabdriver/tabs/hometab.dart';
 import 'package:cabdriver/tabs/profiletab.dart';
@@ -45,7 +46,8 @@ class _MainPageState extends State<MainPage> with SingleTickerProviderStateMixin
         children: <Widget>[
           HomeTab(),
           EarningsTab(),
-          schedule(),
+          //schedule(),
+          DateTimePicker(),
           ProfileTab(),
         ],
       ),

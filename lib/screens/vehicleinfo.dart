@@ -97,7 +97,7 @@ class VehicleInfoPage extends StatelessWidget {
 
                     TextField(
                       controller: vehicleNumberController,
-                      maxLength: 11,
+                      maxLength: 12,
                       decoration: InputDecoration(
                           counterText: '',
                           labelText: 'Vehicle number',
