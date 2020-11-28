@@ -244,7 +244,7 @@ class _DateTimePickerState extends State<DateTimePicker> {
                           onPressed: (
                           ) {
                             final snackBar = SnackBar(
-            content: Center(child: Text(' Trip Scheduled Successfully !')),
+            content:  Text(' Trip Scheduled Successfully !'),
             /*action: SnackBarAction(
               label: 'Undo',
               onPressed: () {
